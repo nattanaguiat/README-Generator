@@ -57,27 +57,23 @@ const questions = [
 
 // TODO: Create a function to write README file
 const writeToFile = (fileName, data) => {
-    return fs.writeFile((fileName), data, (err, data) => {
-        if (err) {
-            console.error(err)
-        }
-    })
+    return fs.promises.writeFile((fileName), data)
 }
 
 // TODO: Create a function to initialize app
 const init = () => {
     //PROMPT - QUESTIONS - CALLBACK => - WRITE TO FILE => (FILE NAME, DATA (GENERATE MARKDOWN =>)) -
     inquirer.prompt(questions)
-    .then((answers) => {
-    const markDown = generateMarkdown(answers)
-    .then(() => {
-        console.log("Succesfully creating professional README.md")
-    })
-    writeToFile("README.md", answers)
-    })
-    .catch((err) => {
+      .then((answers) => {
+          const markDown = generateMarkdown(answers)
+        return writeToFile("README.md", markDown)
+      })
+      .then(() => {
+        console.log('Successfully wrote to README.md');
+      })
+      .catch((err) => {
         console.error(err)
-    })
+      })
 }
 
 // Function call to initialize app
