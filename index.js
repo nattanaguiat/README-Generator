@@ -66,7 +66,7 @@ const init = () => {
     inquirer.prompt(questions)
       .then((answers) => {
           const markDown = generateMarkdown(answers)
-        return writeToFile("README.md", markDown)
+        return writeToFile("SAMPLE.md", markDown)
       })
       .then(() => {
         console.log('Successfully wrote to README.md');

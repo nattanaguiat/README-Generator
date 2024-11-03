@@ -37,9 +37,42 @@ const renderLicenseSection = (license) => {
 const generateMarkdown = (data) => { // EVERYTHING FOR EVERY SECTION 
   return `# ${data.title}
   
-  ## 
-  ## License
-  ##3`;
+## Description
+  
+${data.description}
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+
+## Installation
+
+${data.installation}
+
+## Usage
+
+${data.usage}
+
+## License
+
+${data.license}
+
+## How to Contribute
+
+${data.contributions}
+
+## Tests
+
+${data.tests}
+
+## Questions
+
+For any questions, please contact me at: ${data.email}
+
+GitHub: [${data.github}](https//github.com/${data.github})`;
 }
 
 export default generateMarkdown;
