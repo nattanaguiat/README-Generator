@@ -8,23 +8,32 @@ const renderLicenseBadge = (license) => {
   if (license === 'Apache'){
     return '[![License: Apache](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
   }
-  if (license === 'GNU General Publik License (GPL)'){
+  if (license === 'GPL'){
     return '[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
   }
-  if (license === 'Berkley Source Distribution (BSD)'){'[![License: BSD](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
-    return 
+  if (license === 'BSD'){
+    return '[![License: BSD](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
   } 
-  if (license === 'None'){
-    return ''
-  }
-
-
+  return '';
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 const renderLicenseLink = (license) => {
   // CONDITION (IF LICENSE IS ---> RETURN LINK)
+  if (license === 'MIT'){
+    return '(https://opensource.org/licenses/MIT)'
+  }
+  if (license === 'Apache'){
+    return '(https://opensource.org/licenses/Apache-2.0)'
+  }
+  if (license === 'GPL'){
+    return '(https://www.gnu.org/licenses/gpl-3.0)'
+  }
+  if (license === 'BSD'){
+    return '(https://opensource.org/licenses/BSD-3-Clause)'
+  } 
+  return '';
 }
 
 // TODO: Create a function that returns the license section of README
