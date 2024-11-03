@@ -1,5 +1,5 @@
 // TODO: Include packages needed for this application
-import fs from 'fs';
+import fs, { existsSync } from 'fs';
 import inquirer from 'inquirer';
 import generateMarkdown from './utils/generateMarkdown.js';
 import path from 'path';
@@ -56,8 +56,11 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-const writeToFile = (fileName, data) => {
-    return fs.promises.writeFile((fileName), data)
+const writeToFile = async (fileName, data) => {
+  if (!fs.existsSync('./output')){
+    await fs.promises.mkdir('./output');
+  };
+    return fs.promises.writeFile(`./output/${fileName}`, data);
 }
 
 // TODO: Create a function to initialize app
@@ -66,7 +69,7 @@ const init = () => {
     inquirer.prompt(questions)
       .then((answers) => {
           const markDown = generateMarkdown(answers)
-        return writeToFile("SAMPLE.md", markDown)
+        return writeToFile("README.md", markDown)
       })
       .then(() => {
         console.log('Successfully wrote to README.md');

@@ -45,8 +45,10 @@ ${data.description}
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
 - [License](#license)
+- [How to Contribute](#contributions)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
 
@@ -54,11 +56,11 @@ ${data.installation}
 
 ## Usage
 
-${data.usage}
+${data.usage}.
 
 ## License
 
-${data.license}
+This project is covered under the ${data.license} license.
 
 ## How to Contribute
 
