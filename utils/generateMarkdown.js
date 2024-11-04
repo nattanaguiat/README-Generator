@@ -3,16 +3,16 @@
 const renderLicenseBadge = (license) => {
   // LIST OF LICENSES FROM QUESTION (LIST OPTION OF (HOW TO ADD LICENSE))
   if (license === 'MIT'){
-    return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
   }
   if (license === 'Apache'){
-    return '[![License: Apache](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+    return `[![License: Apache](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
   }
   if (license === 'GPL'){
-    return '[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+    return `[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
   }
   if (license === 'BSD'){
-    return '[![License: BSD](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
+    return `[![License: BSD](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`
   } 
   return '';
 }
@@ -40,12 +40,21 @@ const renderLicenseLink = (license) => {
 // If there is no license, return an empty string
 const renderLicenseSection = (license) => {
   // SECTION FOR IT ----> HEADER IF THER IS A ONE
+  if (license === 'None'){
+    return '';
+  } else {
+    return `## License
+
+This project is covered under the [${license}]${renderLicenseLink(license)} license.
+
+`;
+  }
 }
 
 // TODO: Create a function to generate markdown for README
 const generateMarkdown = (data) => { // EVERYTHING FOR EVERY SECTION 
   return `# ${data.title}
-  
+${renderLicenseBadge(data.license)}
 ## Description
   
 ${data.description}
@@ -54,8 +63,8 @@ ${data.description}
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
-- [How to Contribute](#contributions)
+${data.license === 'None' ? '' : `- [License](#license)
+`}- [How to Contribute](#contributions)
 - [Tests](#tests)
 - [Questions](#questions)
 
@@ -65,13 +74,9 @@ ${data.installation}
 
 ## Usage
 
-${data.usage}.
+${data.usage}
 
-## License
-
-This project is covered under the ${data.license} license.
-
-## How to Contribute
+${renderLicenseSection(data.license)}## How to Contribute
 
 ${data.contributions}
 
@@ -81,7 +86,7 @@ ${data.tests}
 
 ## Questions
 
-For any questions, please contact me at: ${data.email}
+For any questions, please contact me at: [${data.email}](mailto:${data.email})
 
 GitHub: [${data.github}](https//github.com/${data.github})`;
 }
