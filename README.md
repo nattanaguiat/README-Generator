@@ -12,6 +12,8 @@ After the prompt of the questions of a README file, with the collection of the a
 
 Creation of a README.md using the terminal, developing code with Javascript using Node.js
 
+[Video Walk Through](https://drive.google.com/file/d/17tbsSFj84hDdIkjBeyWJf0vsbUXdza0h/view)
+
 ## Questions
 
 For any questions, please contact me at: [nattan23@msn.com](mailto:nattan23@msn.com)
